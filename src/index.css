@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Cabinet Grotesk', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-grotesk: 'Cabinet Grotesk', 'Outfit', system-ui, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #989C9D;
+  color: #FFFFFF;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-grotesk {
+  font-family: var(--font-grotesk);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* GPU-accelerated buttery smooth marquees (0% CPU, 60-120fps compositor thread) */
+@keyframes marquee-drift-gpu {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-gpu {
+  display: flex;
+  width: max-content;
+  animation: marquee-drift-gpu 35s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee-drift-gpu-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.marquee-gpu-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-drift-gpu-reverse 35s linear infinite;
+  will-change: transform;
+}
+
+/* Rotating globe animation */
+@keyframes spin-slow-gpu {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow-gpu 18s linear infinite;
+  will-change: transform;
+}
